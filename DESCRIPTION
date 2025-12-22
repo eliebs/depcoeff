@@ -10,11 +10,8 @@ Depends: R (>= 3.5.0)
 Suggests: MASS
 License: GPL-2
 Encoding: UTF-8
-LazyData: true
+LazyData: false
 LinkingTo: Rcpp
 Imports: Rcpp, copula
-RoxygenNote: 7.0.2
+RoxygenNote: 7.3.2
 NeedsCompilation: yes
-Packaged: 2019-12-23 15:27:38 UTC; spillner
-Repository: CRAN
-Date/Publication: 2020-01-23 16:20:05 UTC
