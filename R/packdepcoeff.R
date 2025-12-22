@@ -1,5 +1,7 @@
 ### R package depcoeff
 
+#' @import copula
+
 #### function psi
 psi<- function(x,id,par=-1){
   h<- abs(x)
@@ -231,7 +233,6 @@ zetapm<- function(x,y,amin=0.25,method="all",methodF=1,parp=1.5,parH=0.5){
 #' library(MASS)
 #' data<- gilgais
 #' zetaci(data[, 1], data[, 2], a=c(0.25, 0.5, 0.75))
-#'
 #' @export
 
 
@@ -349,7 +350,6 @@ zetaci<- function(x,y,a,method="Spearman",methodF=1,parH=0.5,parp=1.5){
 #' library(MASS)
 #' data <- gilgais
 #' spearr(data[,1:3],data[,4],out=1)
-#'
 #' @export
 
 spearr<-function(x,y,direction=NULL,out=0){
@@ -538,11 +538,9 @@ spearrs<-function(x,y,splitp=NULL){
 #' library(MASS)
 #' data <- gilgais
 #' kendr(data[,1:3],data[,4],out=1)
-#'
 #' @export
 
 kendr<-function(x,y,direction=NULL,out=0){
-  require(copula)
   nn<- length(y)
   d<- length(x[1,])
   msr<- -10.0 #maximaler Koeffizient
@@ -564,8 +562,8 @@ kendr<-function(x,y,direction=NULL,out=0){
       }
     }
     v<- as.matrix(cbind(u,y))
-    A<-(sum(F.n(u,u,offset = 0, smoothing = "none"))-1.0)/(nn-1.0) #Nenner
-    B<-(sum(F.n(v,v,offset = 0, smoothing = "none"))-1.0)/(nn-1.0) #Zaehler
+    A<-(sum(copula::F.n(u,u,offset = 0, smoothing = "none"))-1.0)/(nn-1.0) #Nenner
+    B<-(sum(copula::F.n(v,v,offset = 0, smoothing = "none"))-1.0)/(nn-1.0) #Zaehler
     if (out==1){   # Ausgabe aller Koeffizienten
       if (A==0.0) {ret[[k+1]]<- list(dcoeff="not defined",dir=direction)
       }else{ret[[k+1]]<- list(dcoeff=2*B/A-1.0,dir=direction)}  #An,Bn,
@@ -611,7 +609,6 @@ kendr<-function(x,y,direction=NULL,out=0){
 #' @export
 
 kendrs<-function(x,y,splitp=NULL){
-  require(copula)
   nn<- length(y)
   cg<- 0.0  # total coefficient
   if (length(x[1,])>2) {x<- x[,1:2]} #the first two columns are chosen for d>2
@@ -621,8 +618,8 @@ kendrs<-function(x,y,splitp=NULL){
   ret<- list()
   dca<- dcb<- array(0.0,dim=c(2,2,2))
   dc<- vector(length=4)
-  s1<- quantile(x[,1],splitp[1])
-  s2<- quantile(x[,2],splitp[2])
+  s1<- stats::quantile(x[,1],splitp[1])
+  s2<- stats::quantile(x[,2],splitp[2])
   us1<- (x[,1]<=s1)  #logical Vector for split region 1
   us2<- (x[,2]<=s2)  #logical Vector for split region 2
   for (k in 1:2){
@@ -638,8 +635,8 @@ kendrs<-function(x,y,splitp=NULL){
           x0[,2]<- -x0[,2]
         }
         v<- as.matrix(cbind(x0,y0))
-        B<- (sum(F.n(x0,x0,offset = 0, smoothing = "none"))-1.0)/(n1-1.0) #denominator
-        A<- (sum(F.n(v,v,offset = 0, smoothing = "none"))-1.0)/(n1-1.0) #numerator
+        B<- (sum(copula::F.n(x0,x0,offset = 0, smoothing = "none"))-1.0)/(n1-1.0) #denominator
+        A<- (sum(copula::F.n(v,v,offset = 0, smoothing = "none"))-1.0)/(n1-1.0) #numerator
         if (k==1) {
           dc[k0]<- ifelse((B!=0.0),2*A/B-1.0,0.0)
         } else{

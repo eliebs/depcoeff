@@ -2,7 +2,7 @@
 % Please edit documentation in R/packdepcoeff.R
 \name{zetac}
 \alias{zetac}
-\title{zetac}
+\title{Zeta dependence coefficient}
 \usage{
 zetac(x,y,method="Spearman",methodF=1,parH=0.5,parp=1.5)
 }
@@ -24,26 +24,26 @@ parH are between 0 and 1.}
 to be positive.}
 }
 \value{
-zeta dependence coefficient of two random variables. This coefficient 
+zeta dependence coefficient of two random variables. This coefficient
 is bounded by 1. The higher the value the stronger is the dependence.
 }
 \description{
-zetac is a function to evaluate the zeta dependence coefficient (one interval)  
+zetac is a function to evaluate the zeta dependence coefficient (one interval)
 of two random variables x and y which is based on the copula. Four specific coefficients
 are available: the Spearman coefficient, Spearman's footrule, the power coefficient
 and the Huber function coefficient.
 }
 \details{
-Let \eqn{X_{1},\ldots ,X_{n}} be the sample of the \eqn{X} variable. Formulas 
+Let \eqn{X_{1},\ldots ,X_{n}} be the sample of the \eqn{X} variable. Formulas
 for the estimators of values \eqn{F(X_{i})} of the distribution function:
-methodF = 1 \eqn{\rightarrow \hat{F}(X_{i})=\textrm{rank}(X_{i})}
-methodF = 2 \eqn{\rightarrow \hat{F}^{1}(X_{i})=\frac{n}{n+1}\hat{F}(X_{i})}
-methodF = 3 \eqn{\rightarrow \hat{F}^{2}(X_{i})=\frac{n}{\sqrt{n^{2}-1}}\hat{F}(X_{i})}
+  methodF = 1 \eqn{\rightarrow \hat{F}(X_{i})=\frac{1}{n}\textrm{rank}(X_{i})}
+  methodF = 2 \eqn{\rightarrow \hat{F}^{1}(X_{i})=\frac{1}{n+1}\textrm{rank}(X_{i})}
+  methodF = 3 \eqn{\rightarrow \hat{F}^{2}(X_{i})=\frac{1}{\sqrt{n^{2}-1}}\textrm{rank}(X_{i})}
 The values of the distribution function of \eqn{Y} are treated analogously.
 }
 \examples{
 library(MASS)
-data<- gilgais 
+data<- gilgais
 zetac(data[,1],data[,2])
 }
 \references{

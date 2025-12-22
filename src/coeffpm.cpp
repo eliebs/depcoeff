@@ -8,7 +8,8 @@ double psiC(double x,int id,double par){
   if (id==1){return (x*x); };   /* for Spearman-coeff.*/
   if (id==2){return (h); };  /* for Spearman's footrule */
   if (id==3){return std::pow(h,par); };  /* Potenzkoeff.*/
-  if (id==4){if (h<par) {return 0.5*h*h; } else {return par*(h-0.5*par); }}  /* Huberfunktion   */        
+  if (id==4){if (h<par) {return 0.5*h*h; } else {return par*(h-0.5*par); }}  /* Huberfunktion*/
+  return 0.0;
 }
 
 
