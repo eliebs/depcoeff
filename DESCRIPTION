@@ -1,7 +1,7 @@
 Package: depcoeff
 Title: Dependency Coefficients
 Type: Package
-Version: 0.0.1
+Version: 0.1.0
 Date: 2019-12-23
 Author: Eckhard Liebscher
 Maintainer: Eckhard Liebscher <eckhard.liebscher@hs-merseburg.de>
