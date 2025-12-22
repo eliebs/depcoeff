@@ -4,6 +4,11 @@ Type: Package
 Version: 0.1.0
 Date: 2019-12-23
 Author: Eckhard Liebscher
+Authors@R: person(given = "Eckhard",
+                    family = "Liebscher",
+                    role = c("aut", "cre"),
+                    email = "eckhard.liebscher@hs-merseburg.de",
+                    comment = c(ORCID = "0000-0002-8591-1553"))
 Maintainer: Eckhard Liebscher <eckhard.liebscher@hs-merseburg.de>
 Description: Functions to compute coefficients measuring the dependence of two or more than two variables. The functions can be deployed to gain information about functional dependencies of the variables with emphasis on monotone functions. The statistics describe how well one response variable can be approximated by a monotone function of other variables. In regression analysis the variable selection is an important issue. In this framework the functions could be useful tools in modeling the regression function. Detailed explanations on the subject can be found in papers Liebscher (2014) <doi:10.2478/demo-2014-0004>; Liebscher (2017) <doi:10.1515/demo-2017-0012>; Liebscher (2019, submitted).
 Depends: R (>= 3.5.0)
