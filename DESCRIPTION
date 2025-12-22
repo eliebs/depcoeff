@@ -1,0 +1,16 @@
+Package: depcoeff
+Title: Dependency coefficients
+Type: Package
+Version: 0.0.1
+Date: 2019-11-30
+Author: Eckhard Liebscher
+Maintainer: Eckhard Liebscher <eckhard.liebscher@hs-merseburg.de>
+Description: The package provides procedures for computing coefficients describing the dependence of random variates.
+Depends: R (>= 3.2.3)
+Suggests: MASS
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+LinkingTo: Rcpp
+Imports: Rcpp
+RoxygenNote: 6.0.1
